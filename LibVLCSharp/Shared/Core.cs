@@ -24,6 +24,16 @@ namespace LibVLCSharp.Shared
             [DllImport(Constants.LibraryName, EntryPoint = "JNI_OnLoad")]
             internal static extern int JniOnLoad(IntPtr javaVm, IntPtr reserved = default(IntPtr));
 #endif
+
+#if !COCOA && !ANDROID && !WINDOWS
+            /// <summary>
+            /// Initializes the X threading system
+            /// </summary>
+            /// <remarks>Linux X11 only</remarks>
+            /// <returns>non-zero on success, zero on failure</returns>
+            [DllImport("libX11", CallingConvention = CallingConvention.Cdecl)]
+            internal static extern int XInitThreads();
+#endif
         }
 
         static IntPtr _libvlccoreHandle;
@@ -97,6 +107,13 @@ namespace LibVLCSharp.Shared
                     throw new VLCException($"Failed to load required native library {Constants.LibraryName}.dylib");
                 }
             }
+            else if (IsLinux)
+            {
+#if !COCOA && !ANDROID && !WINDOWS
+                // Initializes X threads before calling VLC. This is required for vlc plugins like the VDPAU hardware acceleration plugin.
+                Native.XInitThreads();
+#endif
+            }
         }
 
         //TODO: Add dlopen for UWP, Linux
@@ -121,6 +138,16 @@ namespace LibVLCSharp.Shared
             get => Environment.OSVersion.Platform == PlatformID.Win32NT;
 #else
             get => RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+#endif
+        }
+
+
+        static bool IsLinux
+        {
+#if NET40
+            get => Environment.OSVersion.Platform == PlatformID.Unix;
+#else
+            get => RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
 #endif
         }
 
