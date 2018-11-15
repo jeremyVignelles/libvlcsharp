@@ -3,61 +3,84 @@ using System.Runtime.InteropServices;
 using Gdk;
 using Gtk;
 using LibVLCSharp.Shared;
-using Object = Gtk.Object;
 
 namespace LibVLCSharp.GTK
 {
     public class VideoView : DrawingArea, IVideoView
     {
+        struct Native
+        {
+            /// <summary>
+            /// Gets the window's HWND
+            /// </summary>
+            /// <remarks>Window only</remarks>
+            /// <param name="gdkWindow">The pointer to the GdkWindow object</param>
+            /// <returns>The window's HWND</returns>
+            [DllImport("libgdk-win32-2.0-0.dll", CallingConvention = CallingConvention.Cdecl)]
+            internal static extern IntPtr gdk_win32_drawable_get_handle(IntPtr gdkWindow);
+
+            /// <summary>
+            /// Gets the window's XID
+            /// </summary>
+            /// <remarks>Linux X11 only</remarks>
+            /// <param name="gdkWindow">The pointer to the GdkWindow object</param>
+            /// <returns>The window's XID</returns>
+            [DllImport("libgdk-x11-2.0.so.0", CallingConvention = CallingConvention.Cdecl)]
+            internal static extern uint gdk_x11_drawable_get_xid(IntPtr gdkWindow);
+
+            [DllImport("libgdk-quartz-2.0.0.dylib")]
+            internal static extern IntPtr gdk_quartz_window_get_nsview(IntPtr handle);
+        }
+
         private MediaPlayer _mediaPlayer;
 
         public VideoView(MediaPlayer mediaPlayer = null)
         {
-            this._mediaPlayer = mediaPlayer;
+            _mediaPlayer = mediaPlayer;
             Color black = Color.Zero;
             Color.Parse("black", ref black);
-            this.ModifyBg(StateType.Normal, black);
+            ModifyBg(StateType.Normal, black);
 
-            this.Realized += (s, e) => { this.Attach(); };
+            Realized += (s, e) => Attach();
         }
 
         public MediaPlayer MediaPlayer
         {
             get
             {
-                return this._mediaPlayer;
+                return _mediaPlayer;
             }
             set
             {
-                if (Object.ReferenceEquals(this._mediaPlayer, value))
+                if (ReferenceEquals(_mediaPlayer, value))
                 {
                     return;
                 }
 
-                this.Detach();
-                this._mediaPlayer = value;
-                this.Attach();
+                Detach();
+                _mediaPlayer = value;
+                Attach();
             }
         }
 
         void Attach()
         {
-            if (!this.IsRealized || this._mediaPlayer == null)
+            if (!IsRealized || _mediaPlayer == null)
             {
                 return;
             }
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                MediaPlayer.Hwnd = NativeReferences.gdk_win32_drawable_get_handle(this.GdkWindow.Handle);
+                MediaPlayer.Hwnd = Native.gdk_win32_drawable_get_handle(GdkWindow.Handle);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                MediaPlayer.XWindow = NativeReferences.gdk_x11_drawable_get_xid(this.GdkWindow.Handle);
+                MediaPlayer.XWindow = Native.gdk_x11_drawable_get_xid(GdkWindow.Handle);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                MediaPlayer.NsObject = NativeReferences.gdk_quartz_window_get_nsview(GdkWindow.Handle);
+                MediaPlayer.NsObject = Native.gdk_quartz_window_get_nsview(GdkWindow.Handle);
             }
             else
             {
@@ -67,7 +90,7 @@ namespace LibVLCSharp.GTK
 
         void Detach()
         {
-            if (!this.IsRealized || this._mediaPlayer == null)
+            if (!IsRealized || _mediaPlayer == null)
             {
                 return;
             }
