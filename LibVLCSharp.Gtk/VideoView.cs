@@ -70,15 +70,15 @@ namespace LibVLCSharp.GTK
                 return;
             }
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (PlatformHelper.IsWindows)
             {
                 MediaPlayer.Hwnd = Native.gdk_win32_drawable_get_handle(GdkWindow.Handle);
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            else if (PlatformHelper.IsLinux)
             {
                 MediaPlayer.XWindow = Native.gdk_x11_drawable_get_xid(GdkWindow.Handle);
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            else if (PlatformHelper.IsMac)
             {
                 MediaPlayer.NsObject = Native.gdk_quartz_window_get_nsview(GdkWindow.Handle);
             }
@@ -95,15 +95,15 @@ namespace LibVLCSharp.GTK
                 return;
             }
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (PlatformHelper.IsWindows)
             {
                 MediaPlayer.Hwnd = IntPtr.Zero;
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            else if (PlatformHelper.IsLinux)
             {
                 MediaPlayer.XWindow = 0;
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            else if (PlatformHelper.IsMac)
             {
                 MediaPlayer.NsObject = IntPtr.Zero;
             }

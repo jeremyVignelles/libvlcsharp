@@ -79,9 +79,9 @@ namespace LibVLCSharp.Shared
 #endif
             }
 
-            if (IsWindows)
+            if (PlatformHelper.IsWindows)
             {
-                var arch = IsX64BitProcess ? ArchitectureNames.Win64 : ArchitectureNames.Win86;
+                var arch = PlatformHelper.IsX64BitProcess ? ArchitectureNames.Win64 : ArchitectureNames.Win86;
 
                 var librariesFolder = Path.Combine(appExecutionDirectory, Constants.LibrariesRepositoryFolderName, arch);
 
@@ -99,7 +99,7 @@ namespace LibVLCSharp.Shared
                     throw new VLCException($"Failed to load required native library {Constants.LibraryName}.dll");
                 }
             }
-            else if (IsMac)
+            else if (PlatformHelper.IsMac)
             {
                 _libvlcHandle = PreloadNativeLibrary(appExecutionDirectory, $"{Constants.LibraryName}.dylib");
                 if (_libvlcHandle == IntPtr.Zero)
@@ -107,7 +107,7 @@ namespace LibVLCSharp.Shared
                     throw new VLCException($"Failed to load required native library {Constants.LibraryName}.dylib");
                 }
             }
-            else if (IsLinux)
+            else if (PlatformHelper.IsLinux)
             {
 #if !COCOA && !ANDROID && !WINDOWS
                 // Initializes X threads before calling VLC. This is required for vlc plugins like the VDPAU hardware acceleration plugin.
@@ -130,38 +130,10 @@ namespace LibVLCSharp.Shared
                 return IntPtr.Zero;
             }
 #endif
-            return IsMac ? Native.dlopen(libraryPath) : Native.LoadLibrary(libraryPath);
-        }
-
-        static bool IsWindows
-        {
-#if NET40
-            get => Environment.OSVersion.Platform == PlatformID.Win32NT;
-#else
-            get => RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-#endif
+            return PlatformHelper.IsMac ? Native.dlopen(libraryPath) : Native.LoadLibrary(libraryPath);
         }
 
 
-        static bool IsLinux
-        {
-#if NET40
-            get => Environment.OSVersion.Platform == PlatformID.Unix;
-#else
-            get => RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
-#endif
-        }
-
-        static bool IsMac
-        {
-#if NET40
-            get => (int)Environment.OSVersion.Platform == 6;
-#else
-            get => RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-#endif
-        }
-
-        static bool IsX64BitProcess => IntPtr.Size == 8;
     }
 
     internal static class Constants
