@@ -31,7 +31,7 @@ namespace LibVLCSharp.Shared
             /// </summary>
             /// <remarks>Linux X11 only</remarks>
             /// <returns>non-zero on success, zero on failure</returns>
-            [DllImport("libX11", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(Constants.libX11, CallingConvention = CallingConvention.Cdecl)]
             internal static extern int XInitThreads();
 #endif
         }
@@ -111,7 +111,8 @@ namespace LibVLCSharp.Shared
             {
 #if !COCOA && !ANDROID && !WINDOWS
                 // Initializes X threads before calling VLC. This is required for vlc plugins like the VDPAU hardware acceleration plugin.
-                Native.XInitThreads();
+                if (Native.XInitThreads() == 0)
+                    Debug.WriteLine("XInitThreads failed");
 #endif
             }
         }
@@ -192,6 +193,7 @@ namespace LibVLCSharp.Shared
         internal const string Libc = "libc";
         internal const string libSystem = "libSystem";
         internal const string Kernel32 = "kernel32";
+        internal const string libX11 = "libX11";
     }
 
     internal static class ArchitectureNames
