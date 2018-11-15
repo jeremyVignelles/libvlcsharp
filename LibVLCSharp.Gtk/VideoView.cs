@@ -5,7 +5,7 @@ using Gtk;
 using LibVLCSharp.Shared;
 using Object = Gtk.Object;
 
-namespace LibVLCSharp.Gtk
+namespace LibVLCSharp.GTK
 {
     public class VideoView : DrawingArea, IVideoView
     {

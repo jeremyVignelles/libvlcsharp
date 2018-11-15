@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FBBF3364-2581-48FD-A6F8-68319640E785}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LibVLCSharp.Forms.Sample.Gtk</RootNamespace>
-    <AssemblyName>LibVLCSharp.Forms.Sample.Gtk</AssemblyName>
+    <RootNamespace>LibVLCSharp.Forms.Sample.GTK</RootNamespace>
+    <AssemblyName>LibVLCSharp.Forms.Sample.GTK</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -126,9 +126,9 @@
     <None Include="webkit-sharp.dll.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\LibVLCSharp.Forms.Platforms.Gtk\LibVLCSharp.Forms.Platforms.Gtk.csproj">
-      <Project>{18593fd8-66c0-45c6-b15b-b9bde9953638}</Project>
-      <Name>LibVLCSharp.Forms.Platforms.Gtk</Name>
+    <ProjectReference Include="..\..\..\LibVLCSharp.Forms.Platforms.Gtk\LibVLCSharp.Forms.Platforms.GTK.csproj">
+      <Project>{3F958392-C1A0-407C-AC76-0926F8D0BCCA}</Project>
+      <Name>LibVLCSharp.Forms.Platforms.GTK</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\LibVLCSharp.Forms\LibVLCSharp.Forms.csproj">
       <Project>{06814458-c8b4-4d50-86e2-904e6a9e3499}</Project>

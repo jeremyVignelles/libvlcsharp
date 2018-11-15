@@ -1,15 +1,15 @@
-﻿using LibVLCSharp.Forms.Platforms.Gtk;
+﻿using LibVLCSharp.Forms.Platforms.GTK;
 using LibVLCSharp.Forms.Shared;
 using LibVLCSharp.Shared;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.GTK;
 
 [assembly: ExportRenderer(typeof(LibVLCSharp.Forms.Shared.VideoView), typeof(VideoViewRenderer))]
-namespace LibVLCSharp.Forms.Platforms.Gtk
+namespace LibVLCSharp.Forms.Platforms.GTK
 {
-    public class VideoViewRenderer : ViewRenderer<LibVLCSharp.Forms.Shared.VideoView, LibVLCSharp.Gtk.VideoView>
+    public class VideoViewRenderer : ViewRenderer<LibVLCSharp.Forms.Shared.VideoView, LibVLCSharp.GTK.VideoView>
     {
-        LibVLCSharp.Gtk.VideoView _videoView;
+        LibVLCSharp.GTK.VideoView _videoView;
 
         protected override void OnElementChanged(ElementChangedEventArgs<VideoView> e)
         {
@@ -17,7 +17,7 @@ namespace LibVLCSharp.Forms.Platforms.Gtk
 
             if (Control == null)
             {
-                _videoView = new LibVLCSharp.Gtk.VideoView();
+                _videoView = new LibVLCSharp.GTK.VideoView();
                 SetNativeControl(_videoView);
             }
 

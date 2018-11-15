@@ -1,4 +1,4 @@
-﻿namespace LibVLCSharp.Gtk
+﻿namespace LibVLCSharp.GTK
 {
     using System;
     using System.Runtime.InteropServices;

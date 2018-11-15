@@ -8,7 +8,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibVLCSharp.Forms\LibVLCSharp.Forms.csproj" />
-    <ProjectReference Include="..\LibVLCSharp.Gtk\LibVLCSharp.Gtk.csproj" />
+    <ProjectReference Include="..\LibVLCSharp.GTK\LibVLCSharp.GTK.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="gdk-sharp">

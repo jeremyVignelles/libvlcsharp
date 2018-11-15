@@ -1,8 +1,7 @@
 ﻿using Gtk;
-using LibVLCSharp.Gtk;
 using LibVLCSharp.Shared;
 
-namespace LibVLCSharp.Gtk.Sample
+namespace LibVLCSharp.GTK.Sample
 {
     public class Program
     {
@@ -17,7 +16,7 @@ namespace LibVLCSharp.Gtk.Sample
             using (var mediaPlayer = new MediaPlayer(libvlc))
             {
                 // Create the window in code. This could be done in glade as well, I guess...
-                Window myWin = new Window("LibVLCSharp.Gtk.Sample");
+                Window myWin = new Window("LibVLCSharp.GTK.Sample");
                 myWin.Resize(800, 450);
                 // Creates the video view, and adds it to the window
                 VideoView view = new VideoView(mediaPlayer);
