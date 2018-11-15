@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 using Gdk;
 using Gtk;
 using LibVLCSharp.Shared;
-using Object = Gtk.Object;
 
 namespace LibVLCSharp.Gtk
 {
@@ -29,7 +28,7 @@ namespace LibVLCSharp.Gtk
             }
             set
             {
-                if (Object.ReferenceEquals(this._mediaPlayer, value))
+                if (ReferenceEquals(this._mediaPlayer, value))
                 {
                     return;
                 }
