@@ -1,5 +1,6 @@
 ﻿using LibVLCSharp.Shared;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LibVLCSharp.WinForms.Sample
@@ -13,13 +14,15 @@ namespace LibVLCSharp.WinForms.Sample
         public Form1()
         {
             if (!DesignMode)
-                Core.Initialize();
+            {
+                Core.Initialize(Directory.GetParent(typeof(LibVLC).Assembly.Location).Parent.FullName);
+            }
 
             _videoView = new VideoView();
             ((System.ComponentModel.ISupportInitialize)_videoView).BeginInit();
             SuspendLayout();
 
-            _libVLC = new LibVLC("-vv");
+            _libVLC = new LibVLC();
             _mp = new MediaPlayer(_libVLC);
             Load += Form1_Load;
 
@@ -31,7 +34,7 @@ namespace LibVLCSharp.WinForms.Sample
             Controls.Add(_videoView);
             _videoView.MediaPlayer = _mp;
 
-            ((System.ComponentModel.ISupportInitialize)(_videoView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_videoView).EndInit();
             ResumeLayout(false);
         }
 
