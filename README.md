@@ -12,22 +12,24 @@ It provides a comprehensive multimedia API that can be used across mobile, serve
 
 _The official repository URL for this repo is https://code.videolan.org/videolan/LibVLCSharp._
 
-- [Features](#features)
-- [Supported platforms](#supported-platforms)
-- [Installation](#installation)
-- [Getting started](#getting-started)
-- [Samples](#samples)
-- [Quick API overview](#quick-api-overview)
-- [Roadmap](#roadmap)
-- [Versioning](VERSIONING.md)
-- [Contribute](#contribute)
-- [Communication](#communication)
-  - [Forum](#forum)
-  - [GitLab Issues](#issues)
-  - [IRC](#irc)
-  - [StackOverflow](#stackoverflow)
-- [Code of Conduct](#code-of-conduct)
-- [License](#license)
+- [LibVLCSharp](#libvlcsharp)
+  - [Features](#features)
+  - [Supported platforms](#supported-platforms)
+  - [Installation](#installation)
+  - [Getting started](#getting-started)
+  - [Samples](#samples)
+  - [Quick API overview](#quick-api-overview)
+  - [Roadmap](#roadmap)
+  - [Contribute](#contribute)
+    - [Pull request](#pull-request)
+    - [Gitlab issues](#gitlab-issues)
+  - [Communication](#communication)
+    - [Forum](#forum)
+    - [Issues](#issues)
+    - [IRC](#irc)
+    - [StackOverflow](#stackoverflow)
+  - [Code of Conduct](#code-of-conduct)
+  - [License](#license)
 
 ## Features
 
@@ -119,6 +121,89 @@ If you're using __GTK__ (with or without Xamarin.Forms support) on Linux and/or 
 ```cmd
 dotnet add package LibVLCSharp.GTK
 ```
+
+| Platform          | LibVLC Package                      | NuGet                                  |
+| ----------------- | ----------------------------------- | ---------------------------------------|
+| Windows           | VideoLAN.LibVLC.Windows             | [![LibVLCWindowsBadge]][LibVLCWindows] |
+| Mac               | VideoLAN.LibVLC.Mac                 | [![LibVLCMacBadge]][LibVLCMac]         | 
+| Android           | VideoLAN.LibVLC.Android             | [![LibVLCAndroidBadge]][LibVLCAndroid] | 
+| iOS               | VideoLAN.LibVLC.iOS                 | [![LibVLCiOSBadge]][LibVLCiOS]         |
+| tvOS              | VideoLAN.LibVLC.tvOS                | [![LibVLCtvOSBadge]][LibVLCtvOS]       |
+| Linux             | [Linux guide][LinuxGuide]           | N/A                                    |
+
+
+| Platform          | LibVLCSharp Package                  | NuGet               |
+| ----------------- | ----------------------------------- | -------------------- |
+| .NET Standard     | LibVLCSharp                         | [![CoreBadge]][Core] |
+| Xamarin.Android   | LibVLCSharp                         | [![DroBadge]][Dro]   |
+| Xamarin.iOS       | LibVLCSharp                         | [![CoreBadge]][Core] |
+| Xamarin.tvOS      | LibVLCSharp                         | [![CoreBadge]][Core] |
+| Xamarin.Mac       | LibVLCSharp                         | [![CoreBadge]][Core] |
+| Xamarin.Forms     | LibVLCSharp.Forms                   | [![XamBadge]][Xam]   |
+| WPF               | LibVLCSharp.WPF                     | [![WpfBadge]][Wpf]   |
+| Xamarin.Forms.WPF | LibVLCSharp.Forms.WPF               | [![WpfBadge]][Wpf]   |
+| GTK               | LibVLCSharp.GTK                     | [![WinBadge]][Win]   |
+| Xamarin.Forms.GTK | LibVLCSharp.Forms.GTK               | [![WinBadge]][Win]   |
+| Windows Forms     | LibVLCSharp.WinForms                | [![WinBadge]][Win]   |
+
+
+[LibVLCWindowsBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.Windows.svg
+[LibVLCWindows]: https://www.nuget.org/packages/VideoLAN.LibVLC.Windows/
+
+[LibVLCMac]: https://www.nuget.org/packages/VideoLAN.LibVLC.Mac/
+[LibVLCMacBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.Mac.svg
+
+[LibVLCAndroid]: https://www.nuget.org/packages/VideoLAN.LibVLC.Android/
+[LibVLCAndroidBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.Android.svg
+
+[LibVLCiOS]: https://www.nuget.org/packages/VideoLAN.LibVLC.iOS/
+[LibVLCiOSBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.iOS.svg
+
+[LibVLCtvOS]: https://www.nuget.org/packages/VideoLAN.LibVLC.tvOS/
+[LibVLCtvOSBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.tvOS.svg
+
+
+[CoreEvents]: https://www.nuget.org/packages/ReactiveUI.Events/
+[CoreBadge]: https://img.shields.io/nuget/v/ReactiveUI.svg
+[CoreDoc]: https://reactiveui.net/docs/getting-started/installation/
+
+[Fody]: https://www.nuget.org/packages/ReactiveUI.Fody/
+[FodyDoc]: https://reactiveui.net/docs/handbook/view-models/#managing-boilerplate-code
+[FodyBadge]: https://img.shields.io/nuget/v/ReactiveUI.Fody.svg
+
+[Test]: https://www.nuget.org/packages/ReactiveUI.Testing/
+[TestBadge]: https://img.shields.io/nuget/v/ReactiveUI.Testing.svg
+[TestDoc]: https://reactiveui.net/docs/handbook/testing/
+
+[UniDoc]: https://reactiveui.net/docs/getting-started/installation/universal-windows-platform
+
+[Wpf]: https://www.nuget.org/packages/ReactiveUI.WPF/
+[WpfEvents]: https://www.nuget.org/packages/ReactiveUI.Events.WPF/
+[WpfBadge]: https://img.shields.io/nuget/v/ReactiveUI.WPF.svg
+[WpfDoc]: https://reactiveui.net/docs/getting-started/installation/windows-presentation-foundation
+
+[Win]: https://www.nuget.org/packages/ReactiveUI.WinForms/
+[WinEvents]: https://www.nuget.org/packages/ReactiveUI.Events.WinForms/
+[WinBadge]: https://img.shields.io/nuget/v/ReactiveUI.WinForms.svg
+[WinDoc]: https://reactiveui.net/docs/getting-started/installation/windows-forms
+
+[Xam]: https://www.nuget.org/packages/ReactiveUI.XamForms/
+[XamEvents]: https://www.nuget.org/packages/ReactiveUI.Events.XamForms/
+[XamBadge]: https://img.shields.io/nuget/v/ReactiveUI.XamForms.svg
+[XamDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-forms
+[XamE]: https://www.nuget.org/packages/ReactiveUI.Events.XamEssentials/
+
+[Dro]: https://www.nuget.org/packages/ReactiveUI.AndroidSupport/
+[DroBadge]: https://img.shields.io/nuget/v/ReactiveUI.AndroidSupport.svg
+[DroDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-android
+
+[MacDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-mac
+[IosDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-ios
+
+[Ava]: https://www.nuget.org/packages/Avalonia.ReactiveUI/
+[AvaBadge]: https://img.shields.io/nuget/v/Avalonia.ReactiveUI.svg
+[AvaDoc]: https://reactiveui.net/docs/getting-started/installation/avalonia
+[EventsDocs]: https://reactiveui.net/docs/handbook/events/
 
 ## Getting started
 
