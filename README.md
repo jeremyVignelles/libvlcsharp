@@ -123,28 +123,28 @@ dotnet add package LibVLCSharp.GTK
 ```
 
 | Platform          | LibVLC Package                      | NuGet                                  |
-| ----------------- | ----------------------------------- | ---------------------------------------|
+| ----------------- | ----------------------------------- | -------------------------------------- |
 | Windows           | VideoLAN.LibVLC.Windows             | [![LibVLCWindowsBadge]][LibVLCWindows] |
 | Mac               | VideoLAN.LibVLC.Mac                 | [![LibVLCMacBadge]][LibVLCMac]         | 
 | Android           | VideoLAN.LibVLC.Android             | [![LibVLCAndroidBadge]][LibVLCAndroid] | 
 | iOS               | VideoLAN.LibVLC.iOS                 | [![LibVLCiOSBadge]][LibVLCiOS]         |
 | tvOS              | VideoLAN.LibVLC.tvOS                | [![LibVLCtvOSBadge]][LibVLCtvOS]       |
-| Linux             | [Linux guide][LinuxGuide]           | N/A                                    |
+| Linux             | [Linux guide](docs/linux-setup.md)  | N/A                                    |
 
 
-| Platform          | LibVLCSharp Package                  | NuGet               |
-| ----------------- | ----------------------------------- | -------------------- |
-| .NET Standard     | LibVLCSharp                         | [![CoreBadge]][Core] |
-| Xamarin.Android   | LibVLCSharp                         | [![DroBadge]][Dro]   |
-| Xamarin.iOS       | LibVLCSharp                         | [![CoreBadge]][Core] |
-| Xamarin.tvOS      | LibVLCSharp                         | [![CoreBadge]][Core] |
-| Xamarin.Mac       | LibVLCSharp                         | [![CoreBadge]][Core] |
-| Xamarin.Forms     | LibVLCSharp.Forms                   | [![XamBadge]][Xam]   |
-| WPF               | LibVLCSharp.WPF                     | [![WpfBadge]][Wpf]   |
-| Xamarin.Forms.WPF | LibVLCSharp.Forms.WPF               | [![WpfBadge]][Wpf]   |
-| GTK               | LibVLCSharp.GTK                     | [![WinBadge]][Win]   |
-| Xamarin.Forms.GTK | LibVLCSharp.Forms.GTK               | [![WinBadge]][Win]   |
-| Windows Forms     | LibVLCSharp.WinForms                | [![WinBadge]][Win]   |
+| Platform          | LibVLCSharp Package                  | NuGet                                             |
+| ----------------- | ----------------------------------- | -------------------------------------------------- |
+| .NET Standard     | LibVLCSharp                         | [![LibVLCSharpBadge]][LibVLCSharp]                 |
+| Xamarin.Android   | LibVLCSharp                         | [![LibVLCSharpBadge]][LibVLCSharp]                 |
+| Xamarin.iOS       | LibVLCSharp                         | [![LibVLCSharpBadge]][LibVLCSharp]                 |
+| Xamarin.tvOS      | LibVLCSharp                         | [![LibVLCSharpBadge]][LibVLCSharp]                 |
+| Xamarin.Mac       | LibVLCSharp                         | [![LibVLCSharpBadge]][LibVLCSharp]                 |
+| Xamarin.Forms     | LibVLCSharp.Forms                   | [![LibVLCSharpFormsBadge]][LibVLCSharpForms]       |
+| WPF               | LibVLCSharp.WPF                     | [![LibVLCSharpWPFBadge]][LibVLCSharpWPF]           |
+| Xamarin.Forms.WPF | LibVLCSharp.Forms.WPF               | [![LibVLCSharpFormsWPFBadge]][LibVLCSharpFormsWPF] |
+| GTK               | LibVLCSharp.GTK                     | [![LibVLCSharpGTKBadge]][LibVLCSharpGTK]           |
+| Xamarin.Forms.GTK | LibVLCSharp.Forms.GTK               | [![LibVLCSharpFormsGTKBadge]][LibVLCSharpFormsGTK] |
+| Windows Forms     | LibVLCSharp.WinForms                | [![LibVLCSharpWinFormsBadge]][LibVLCSharpWinForms] |
 
 
 [LibVLCWindowsBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.Windows.svg
@@ -162,48 +162,27 @@ dotnet add package LibVLCSharp.GTK
 [LibVLCtvOS]: https://www.nuget.org/packages/VideoLAN.LibVLC.tvOS/
 [LibVLCtvOSBadge]: https://img.shields.io/nuget/v/VideoLAN.LibVLC.tvOS.svg
 
+[LibVLCSharp]: https://www.nuget.org/packages/LibVLCSharp/
+[LibVLCSharpBadge]: https://img.shields.io/nuget/v/LibVLCSharp.svg
 
-[CoreEvents]: https://www.nuget.org/packages/ReactiveUI.Events/
-[CoreBadge]: https://img.shields.io/nuget/v/ReactiveUI.svg
-[CoreDoc]: https://reactiveui.net/docs/getting-started/installation/
+[LibVLCSharpForms]: https://www.nuget.org/packages/LibVLCSharp.Forms/
+[LibVLCSharpFormsBadge]: https://img.shields.io/nuget/v/LibVLCSharp.Forms.svg
 
-[Fody]: https://www.nuget.org/packages/ReactiveUI.Fody/
-[FodyDoc]: https://reactiveui.net/docs/handbook/view-models/#managing-boilerplate-code
-[FodyBadge]: https://img.shields.io/nuget/v/ReactiveUI.Fody.svg
+[LibVLCSharpWPF]: https://www.nuget.org/packages/LibVLCSharp.WPF/
+[LibVLCSharpWPFBadge]: https://img.shields.io/nuget/v/LibVLCSharp.WPF.svg
 
-[Test]: https://www.nuget.org/packages/ReactiveUI.Testing/
-[TestBadge]: https://img.shields.io/nuget/v/ReactiveUI.Testing.svg
-[TestDoc]: https://reactiveui.net/docs/handbook/testing/
+[LibVLCSharpFormsWPF]: https://www.nuget.org/packages/LibVLCSharp.Forms.WPF/
+[LibVLCSharpFormsWPFBadge]: https://img.shields.io/nuget/v/LibVLCSharp.Forms.WPF.svg
 
-[UniDoc]: https://reactiveui.net/docs/getting-started/installation/universal-windows-platform
+[LibVLCSharpGTK]: https://www.nuget.org/packages/LibVLCSharp.GTK/
+[LibVLCSharpGTKBadge]: https://img.shields.io/nuget/v/LibVLCSharp.GTK.svg
 
-[Wpf]: https://www.nuget.org/packages/ReactiveUI.WPF/
-[WpfEvents]: https://www.nuget.org/packages/ReactiveUI.Events.WPF/
-[WpfBadge]: https://img.shields.io/nuget/v/ReactiveUI.WPF.svg
-[WpfDoc]: https://reactiveui.net/docs/getting-started/installation/windows-presentation-foundation
+[LibVLCSharpFormsGTK]: https://www.nuget.org/packages/LibVLCSharp.Forms.GTK/
+[LibVLCSharpFormsGTKBadge]: https://img.shields.io/nuget/v/LibVLCSharp.Forms.GTK.svg
 
-[Win]: https://www.nuget.org/packages/ReactiveUI.WinForms/
-[WinEvents]: https://www.nuget.org/packages/ReactiveUI.Events.WinForms/
-[WinBadge]: https://img.shields.io/nuget/v/ReactiveUI.WinForms.svg
-[WinDoc]: https://reactiveui.net/docs/getting-started/installation/windows-forms
+[LibVLCSharpWinForms]: https://www.nuget.org/packages/LibVLCSharp.WinForms/
+[LibVLCSharpWinFormsBadge]: https://img.shields.io/nuget/v/LibVLCSharp.WinForms.svg
 
-[Xam]: https://www.nuget.org/packages/ReactiveUI.XamForms/
-[XamEvents]: https://www.nuget.org/packages/ReactiveUI.Events.XamForms/
-[XamBadge]: https://img.shields.io/nuget/v/ReactiveUI.XamForms.svg
-[XamDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-forms
-[XamE]: https://www.nuget.org/packages/ReactiveUI.Events.XamEssentials/
-
-[Dro]: https://www.nuget.org/packages/ReactiveUI.AndroidSupport/
-[DroBadge]: https://img.shields.io/nuget/v/ReactiveUI.AndroidSupport.svg
-[DroDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-android
-
-[MacDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-mac
-[IosDoc]: https://reactiveui.net/docs/getting-started/installation/xamarin-ios
-
-[Ava]: https://www.nuget.org/packages/Avalonia.ReactiveUI/
-[AvaBadge]: https://img.shields.io/nuget/v/Avalonia.ReactiveUI.svg
-[AvaDoc]: https://reactiveui.net/docs/getting-started/installation/avalonia
-[EventsDocs]: https://reactiveui.net/docs/handbook/events/
 
 ## Getting started
 
